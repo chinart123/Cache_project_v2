@@ -1,0 +1,21 @@
+# TEST_NAME: Edge Case - L2 Evict from Both Caches
+# EXPECTED_DATA_READ: 1
+# EXPECTED_DATA_WRITE: 0
+# EXPECTED_DATA_HIT: 0
+# EXPECTED_DATA_MISS: 1
+# EXPECTED_WRITE_BACK: 0
+# EXPECTED_INSTR_READ: 1
+# EXPECTED_INSTR_WRITE: 0
+# EXPECTED_INSTR_HIT: 0
+# EXPECTED_INSTR_MISS: 1
+# EXPECTED_DATA_HIT_RATIO: 0.0000
+# EXPECTED_INSTR_HIT_RATIO: 0.0000
+# RUN_MODE: 1
+# DESCRIPTION: Same address in both caches, L2 evicts it from both
+
+0 0x00408040    # Data read miss
+2 0x00408040    # Instruction read miss (same address)
+3 0x00408040    # L2 evict - should remove from both caches
+0 0x00408040    # Data read miss (evicted)
+2 0x00408040    # Instruction read miss (evicted)
+9

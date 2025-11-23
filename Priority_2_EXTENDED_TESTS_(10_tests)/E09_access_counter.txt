@@ -1,0 +1,26 @@
+# TEST_NAME: Extended - Access Counters Verification
+# EXPECTED_DATA_READ: 4
+# EXPECTED_DATA_WRITE: 3
+# EXPECTED_DATA_HIT: 3
+# EXPECTED_DATA_MISS: 4
+# EXPECTED_WRITE_BACK: 0
+# EXPECTED_INSTR_READ: 2
+# EXPECTED_INSTR_WRITE: 0
+# EXPECTED_INSTR_HIT: 1
+# EXPECTED_INSTR_MISS: 1
+# EXPECTED_DATA_HIT_RATIO: 0.4286
+# EXPECTED_INSTR_HIT_RATIO: 0.5000
+# RUN_MODE: 0
+# VERIFICATION: All access counters increment correctly
+
+0 0x00408040    # Data read miss
+0 0x00408040    # Data read hit
+1 0x00408044    # Data write miss  
+1 0x00408044    # Data write hit
+0 0x00408048    # Data read miss
+1 0x0040804C    # Data write miss
+0 0x00408048    # Data read hit
+
+2 0x00409040    # Instruction read miss
+2 0x00409040    # Instruction read hit
+9

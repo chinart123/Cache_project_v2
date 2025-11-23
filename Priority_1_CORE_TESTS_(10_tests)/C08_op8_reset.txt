@@ -1,0 +1,21 @@
+# TEST_NAME: Operation 8 - Reset Cache and Stats
+# EXPECTED_DATA_READ: 2
+# EXPECTED_DATA_WRITE: 0
+# EXPECTED_DATA_HIT: 1
+# EXPECTED_DATA_MISS: 1
+# EXPECTED_WRITE_BACK: 0
+# EXPECTED_INSTR_READ: 0
+# EXPECTED_INSTR_WRITE: 0
+# EXPECTED_INSTR_HIT: 0
+# EXPECTED_INSTR_MISS: 0
+# EXPECTED_DATA_HIT_RATIO: 0.5000
+# EXPECTED_INSTR_HIT_RATIO: 0.0000
+# RUN_MODE: 0
+# EXPECTED_L2_MESSAGES: 0
+
+0 0x00408040    # Read miss
+0 0x00408040    # Read hit (stats: 1 miss, 1 hit)
+8               # RESET - clear cache and stats
+0 0x00408040    # Read miss (fresh start)
+0 0x00408040    # Read hit (stats should be: 1 miss, 1 hit after reset)
+9

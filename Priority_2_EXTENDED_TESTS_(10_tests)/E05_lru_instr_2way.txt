@@ -1,0 +1,22 @@
+# TEST_NAME: Extended - LRU Instruction Cache (2-way)
+# EXPECTED_DATA_READ: 0
+# EXPECTED_DATA_WRITE: 0
+# EXPECTED_DATA_HIT: 0
+# EXPECTED_DATA_MISS: 0
+# EXPECTED_WRITE_BACK: 0
+# EXPECTED_INSTR_READ: 5
+# EXPECTED_INSTR_WRITE: 0
+# EXPECTED_INSTR_HIT: 3
+# EXPECTED_INSTR_MISS: 2
+# EXPECTED_INSTR_HIT_RATIO: 0.6000
+# EXPECTED_DATA_HIT_RATIO: 0.0000
+# RUN_MODE: 1
+# EXPECTED_L2_MESSAGES: 2 (instruction read misses)
+
+# Instruction cache: 2-way set associative
+2 0x00408040    # A - Miss
+2 0x00410040    # B - Miss (set now full)
+2 0x00408040    # A - Hit (A becomes MRU)
+2 0x00418040    # C - Miss (evicts B - LRU)
+2 0x00408040    # A - Hit
+9

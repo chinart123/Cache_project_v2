@@ -1,0 +1,51 @@
+Dựa trên phân tích các test case từ repository 
+và mục đích của từng test, dưới đây là danh sách tất cả các file test cùng với mode chạy hợp lý (0 hoặc 1) để đảm bảo kiểm tra đầy đủ chức năng. 
+Mode 1 được khuyến nghị cho các test liên quan đến giao tiếp L2, 
+trong khi mode 0 phù hợp cho các test chỉ kiểm tra thống kê hoặc nội dung cache. 
+Hit_show luôn là 0 để tránh hiển thị chi tiết không cần thiết.
+
+Priority 1: CORE TESTS (10 tests)
+C01_mode0_stats_only.txt → Mode 0
+C02_mode1_full_messages.txt → Mode 1
+C03_read_miss_to_l2.txt → Mode 1
+C04_write_miss_rfo.txt → Mode 1
+C05_dirty_evict_writeback.txt → Mode 1
+C06_first_write_through.txt → Mode 1
+C07_op9_print_valid.txt → Mode 0
+C08_op8_reset.txt → Mode 0
+C09_l2_evict_inclusivity.txt → Mode 1
+C10_lru_data_4way.txt → Mode 0
+
+Priority 2: EXTENDED TESTS (10 tests)
+E01_read_hit.txt → Mode 0
+E02_write_hit.txt → Mode 0
+E03_multiple_writebacks.txt → Mode 1
+E04_lru_complex.txt → Mode 0
+E05_lru_instr_2way.txt → Mode 0
+E06_tag_extraction.txt → Mode 0
+E07_set_extraction.txt → Mode 0
+E08_hit_ratio_calc.txt → Mode 0
+E09_access_counter.txt → Mode 0
+E10_same_addr_both.txt → Mode 0
+
+Priority 3: EDGE CASES (5 tests)
+A01_full_set_conflict.txt → Mode 0
+A02_clean_eviction.txt → Mode 1
+A03_l2_evict_invalid.txt → Mode 1
+A04_l2_evict_both.txt → Mode 1
+A05_stress_test.txt → Mode 0
+
+Priority 4: AUTO-VERIFICATION (5 tests)
+V01_auto_verify_basic.txt → Mode 1
+V02_auto_verify_complex.txt → Mode 1
+V03_auto_verify_lru.txt → Mode 1
+V04_auto_verify_modes.txt → Mode 1
+V05_auto_verify_stats.txt → Mode 1
+Ghi chú:
+Tất cả các lệch chạy đều sử dụng hit_show = 0, ví dụ: ./cache.exe "file_path" <mode> 0
+
+Mode 1 được ưu tiên cho các test yêu cầu hiển thị thông điệp L2 để xác minh hành vi cache.
+
+Mode 0 phù hợp cho các test tập trung vào thống kê hoặc kiểm tra nội dung cache mà không cần thông điệp L2.
+
+Danh sách này dựa trên phân tích từ repository và đặc tả dự án để đạt độ chính xác cao nhất.

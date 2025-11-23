@@ -1,0 +1,29 @@
+# TEST_NAME: Extended - Hit Ratio Calculation Accuracy
+# EXPECTED_DATA_READ: 5
+# EXPECTED_DATA_WRITE: 3
+# EXPECTED_DATA_HIT: 4
+# EXPECTED_DATA_MISS: 4
+# EXPECTED_WRITE_BACK: 0
+# EXPECTED_INSTR_READ: 2
+# EXPECTED_INSTR_WRITE: 0
+# EXPECTED_INSTR_HIT: 1
+# EXPECTED_INSTR_MISS: 1
+# EXPECTED_DATA_HIT_RATIO: 0.5000  # 4 hits / (4 hits + 4 misses)
+# EXPECTED_INSTR_HIT_RATIO: 0.5000 # 1 hit / (1 hit + 1 miss)
+# RUN_MODE: 0
+# VERIFICATION: Hit ratios calculated correctly
+
+# Data cache accesses
+0 0x00408040    # Miss
+0 0x00408040    # Hit
+1 0x00408044    # Miss  
+1 0x00408044    # Hit
+0 0x00408048    # Miss
+0 0x00408048    # Hit
+1 0x0040804C    # Miss
+1 0x0040804C    # Hit
+
+# Instruction cache accesses
+2 0x00409040    # Miss
+2 0x00409040    # Hit
+9

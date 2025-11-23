@@ -1,0 +1,19 @@
+# TEST_NAME: L2 Evict - Inclusivity Property
+# EXPECTED_DATA_READ: 2
+# EXPECTED_DATA_WRITE: 0
+# EXPECTED_DATA_HIT: 0
+# EXPECTED_DATA_MISS: 2
+# EXPECTED_WRITE_BACK: 0
+# EXPECTED_INSTR_READ: 1
+# EXPECTED_INSTR_WRITE: 0
+# EXPECTED_INSTR_HIT: 0
+# EXPECTED_INSTR_MISS: 1
+# EXPECTED_DATA_HIT_RATIO: 0.0000
+# EXPECTED_INSTR_HIT_RATIO: 0.0000
+# RUN_MODE: 1
+
+0 0x00408040    # Data read miss → Read from L2
+2 0x00409040    # Instruction fetch miss → Read from L2
+3 0x00408040    # L2 evict command → Invalidate data cache line
+0 0x00408040    # Data read miss (line was evicted by L2 command)
+9

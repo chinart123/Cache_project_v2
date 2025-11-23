@@ -1,0 +1,231 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        // =========================================================
+        // 1. Priority 1: CORE TESTS (10 Tests)
+        // =========================================================
+        {
+            "label": "C01_mode0_stats_only.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_1_CORE_TESTS_(10_tests)\\C01_mode0_stats_only.txt\\\" 0\"",
+            "group": "P1",
+            "presentation": { "panel": "new", "group": "P1", "reveal": "always", "close": false } 
+        },
+        {
+            "label": "C02_mode1_full_messages.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_1_CORE_TESTS_(10_tests)\\C02_mode1_full_messages.txt\\\" 0\"",
+            "group": "P1",
+            "presentation": { "panel": "new", "group": "P1", "reveal": "always", "close": false }
+        },
+        {
+            "label": "C03_read_miss_to_l2.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_1_CORE_TESTS_(10_tests)\\C03_read_miss_to_l2.txt\\\" 0\"",
+            "group": "P1",
+            "presentation": { "panel": "new", "group": "P1", "reveal": "always", "close": false }
+        },
+        {
+            "label": "C04_write_miss_rfo.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_1_CORE_TESTS_(10_tests)\\C04_write_miss_rfo.txt\\\" 0\"",
+            "group": "P1",
+            "presentation": { "panel": "new", "group": "P1", "reveal": "always", "close": false }
+        },
+        {
+            "label": "C05_dirty_evict_writeback.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_1_CORE_TESTS_(10_tests)\\C05_dirty_evict_writeback.txt\\\" 0\"",
+            "group": "P1",
+            
+            "presentation": { "panel": "new", "group": "P1", "reveal": "always", "close": false }
+        },
+        {
+            "label": "C06_first_write_through.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_1_CORE_TESTS_(10_tests)\\C06_first_write_through.txt\\\" 0\"",
+            "group": "P1",
+            "presentation": { "panel": "new", "group": "P1", "reveal": "always", "close": false }
+        },
+        {
+            "label": "C07_op9_print_valid.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_1_CORE_TESTS_(10_tests)\\C07_op9_print_valid.txt\\\" 0\"",
+            "group": "P1",
+            "presentation": { "panel": "new", "group": "P1", "reveal": "always", "close": false }
+        },
+        {
+            "label": "C08_op8_reset.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_1_CORE_TESTS_(10_tests)\\C08_op8_reset.txt\\\" 0\"",
+            "group": "P1",
+            "presentation": { "panel": "new", "group": "P1", "reveal": "always", "close": false }
+        },
+        {
+            "label": "C09_l2_evict_inclusivity.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_1_CORE_TESTS_(10_tests)\\C09_l2_evict_inclusivity.txt\\\" 0\"",
+            "group": "P1",
+            "presentation": { "panel": "new", "group": "P1", "reveal": "always", "close": false }
+        },
+        {
+            "label": "C10_lru_data_4way.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_1_CORE_TESTS_(10_tests)\\C10_lru_data_4way.txt\\\" 0\"",
+            "group": "P1",
+            "presentation": { "panel": "new", "group": "P1", "reveal": "always", "close": false }
+        },
+        
+        // =========================================================
+        // 2. Priority 2: EXTENDED TESTS (10 Tests)
+        // =========================================================
+        {
+            "label": "E01_read_hit.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_2_EXTENDED_TESTS_(10_tests)\\E01_read_hit.txt\\\" 0\"",
+            "group": "P2",
+            "presentation": { "panel": "new", "group": "P2", "reveal": "always", "close": false }
+        },
+        {
+            "label": "E02_write_hit.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_2_EXTENDED_TESTS_(10_tests)\\E02_write_hit.txt\\\" 0\"",
+            "group": "P2",
+            "presentation": { "panel": "new", "group": "P2", "reveal": "always", "close": false }
+        },
+        {
+            "label": "E03_multiple_writebacks.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_2_EXTENDED_TESTS_(10_tests)\\E03_multiple_writebacks.txt\\\" 0\"",
+            "group": "P2",
+            "presentation": { "panel": "new", "group": "P2", "reveal": "always", "close": false }
+        },
+        {
+            "label": "E04_lru_complex.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_2_EXTENDED_TESTS_(10_tests)\\E04_lru_complex.txt\\\" 0\"",
+            "group": "P2",
+            "presentation": { "panel": "new", "group": "P2", "reveal": "always", "close": false }
+        },
+        {
+            "label": "E05_lru_instr_2way.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_2_EXTENDED_TESTS_(10_tests)\\E05_lru_instr_2way.txt\\\" 0\"",
+            "group": "P2",
+            "presentation": { "panel": "new", "group": "P2", "reveal": "always", "close": false }
+        },
+        {
+            "label": "E06_tag_extraction.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_2_EXTENDED_TESTS_(10_tests)\\E06_tag_extraction.txt\\\" 0\"",
+            "group": "P2",
+            "presentation": { "panel": "new", "group": "P2", "reveal": "always", "close": false }
+        },
+        {
+            "label": "E07_set_extraction.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_2_EXTENDED_TESTS_(10_tests)\\E07_set_extraction.txt\\\" 0\"",
+            "group": "P2",
+            "presentation": { "panel": "new", "group": "P2", "reveal": "always", "close": false }
+        },
+        {
+            "label": "E08_hit_ratio_calc.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_2_EXTENDED_TESTS_(10_tests)\\E08_hit_ratio_calc.txt\\\" 0\"",
+            "group": "P2",
+            "presentation": { "panel": "new", "group": "P2", "reveal": "always", "close": false }
+        },
+        {
+            "label": "E09_access_counter.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_2_EXTENDED_TESTS_(10_tests)\\E09_access_counter.txt\\\" 0\"",
+            "group": "P2",
+            "presentation": { "panel": "new", "group": "P2", "reveal": "always", "close": false }
+        },
+        {
+            "label": "E10_same_addr_both.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_2_EXTENDED_TESTS_(10_tests)\\E10_same_addr_both.txt\\\" 0\"",
+            "group": "P2",
+            "presentation": { "panel": "new", "group": "P2", "reveal": "always", "close": false }
+        },
+        
+        // =========================================================
+        // 3. Priority 3: EDGE CASES (5 Tests)
+        // =========================================================
+        {
+            "label": "A01_full_set_conflict.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_3_EDGE_CASES_(5_tests)\\A01_full_set_conflict.txt\\\" 0\"",
+            "group": "P3",
+            "presentation": { "panel": "new", "group": "P3", "reveal": "always", "close": false }
+        },
+        {
+            "label": "A02_clean_eviction.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_3_EDGE_CASES_(5_tests)\\A02_clean_eviction.txt\\\" 0\"",
+            "group": "P3",
+            "presentation": { "panel": "new", "group": "P3", "reveal": "always", "close": false }
+        },
+        {
+            "label": "A03_l2_evict_invalid.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_3_EDGE_CASES_(5_tests)\\A03_l2_evict_invalid.txt\\\" 0\"",
+            "group": "P3",
+            "presentation": { "panel": "new", "group": "P3", "reveal": "always", "close": false }
+        },
+        {
+            "label": "A04_l2_evict_both.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_3_EDGE_CASES_(5_tests)\\A04_l2_evict_both.txt\\\" 0\"",
+            "group": "P3",
+            "presentation": { "panel": "new", "group": "P3", "reveal": "always", "close": false }
+        },
+        {
+            "label": "A05_stress_test.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_3_EDGE_CASES_(5_tests)\\A05_stress_test.txt\\\" 0\"",
+            "group": "P3",
+            "presentation": { "panel": "new", "group": "P3", "reveal": "always", "close": false }
+        },
+        
+        // =========================================================
+        // 4. Priority 4: AUTO-VERIFICATION (5 Tests)
+        // =========================================================
+        {
+            "label": "V01_auto_verify_basic.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_4_AUTO-VERIFICATION_(5_tests)\\V01_auto_verify_basic.txt\\\" 0\"",
+            "group": "P4",
+            "presentation": { "panel": "new", "group": "P4", "reveal": "always", "close": false }
+        },
+        {
+            "label": "V02_auto_verify_complex.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_4_AUTO-VERIFICATION_(5_tests)\\V02_auto_verify_complex.txt\\\" 0\"",
+            "group": "P4",
+            "presentation": { "panel": "new", "group": "P4", "reveal": "always", "close": false }
+        },
+        {
+            "label": "V03_auto_verify_lru.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_4_AUTO-VERIFICATION_(5_tests)\\V03_auto_verify_lru.txt\\\" 0\"",
+            "group": "P4",
+            "presentation": { "panel": "new", "group": "P4", "reveal": "always", "close": false }
+        },
+        {
+            "label": "V04_auto_verify_modes.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_4_AUTO-VERIFICATION_(5_tests)\\V04_auto_verify_modes.txt\\\" 0\"",
+            "group": "P4",
+            "presentation": { "panel": "new", "group": "P4", "reveal": "always", "close": false }
+        },
+        {
+            "label": "V05_auto_verify_stats.txt",
+            "type": "shell",
+            "command": "PowerShell -Command \"chcp 65001; .\\cache.exe \\\"Priority_4_AUTO-VERIFICATION_(5_tests)\\V05_auto_verify_stats.txt\\\" 0\"",
+            "group": "P4",
+            "presentation": { "panel": "new", "group": "P4", "reveal": "always", "close": false }
+        }
+    ]
+}

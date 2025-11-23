@@ -1,0 +1,21 @@
+# TEST_NAME: Extended - Same Address in Both Caches
+# EXPECTED_DATA_READ: 2
+# EXPECTED_DATA_WRITE: 0
+# EXPECTED_DATA_HIT: 0
+# EXPECTED_DATA_MISS: 2
+# EXPECTED_WRITE_BACK: 0
+# EXPECTED_INSTR_READ: 2
+# EXPECTED_INSTR_WRITE: 0
+# EXPECTED_INSTR_HIT: 0
+# EXPECTED_INSTR_MISS: 2
+# EXPECTED_DATA_HIT_RATIO: 0.0000
+# EXPECTED_INSTR_HIT_RATIO: 0.0000
+# RUN_MODE: 1
+# VERIFICATION: Same address can exist in both data and instruction caches independently
+
+# Same address accessed as both data and instruction
+0 0x00408040    # Data read miss → Read from L2
+2 0x00408040    # Instruction read miss → Read from L2 (separate cache)
+0 0x00408040    # Data read miss (still separate)
+2 0x00408040    # Instruction read miss (still separate)
+9

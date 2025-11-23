@@ -1,0 +1,29 @@
+# TEST_NAME: Extended - Multiple Write-Backs
+# EXPECTED_DATA_READ: 5
+# EXPECTED_DATA_WRITE: 3
+# EXPECTED_DATA_HIT: 3
+# EXPECTED_DATA_MISS: 5
+# EXPECTED_WRITE_BACK: 3
+# EXPECTED_INSTR_READ: 0
+# EXPECTED_INSTR_WRITE: 0
+# EXPECTED_INSTR_HIT: 0
+# EXPECTED_INSTR_MISS: 0
+# EXPECTED_DATA_HIT_RATIO: 0.3750
+# EXPECTED_INSTR_HIT_RATIO: 0.0000
+# RUN_MODE: 1
+# EXPECTED_L2_MESSAGES: 8 (5 read misses + 3 write-backs)
+
+# Fill 4 ways with dirty data
+0 0x00408040    # Miss
+1 0x00408040    # Hit → Make dirty
+0 0x00410040    # Miss (different tag, same set)
+1 0x00410040    # Hit → Make dirty  
+0 0x00418040    # Miss
+1 0x00418040    # Hit → Make dirty
+0 0x00420040    # Miss
+
+# Now trigger evictions of dirty lines
+0 0x00428040    # Miss → Evict dirty → Write-Back
+0 0x00430040    # Miss → Evict dirty → Write-Back  
+0 0x00438040    # Miss → Evict dirty → Write-Back
+9

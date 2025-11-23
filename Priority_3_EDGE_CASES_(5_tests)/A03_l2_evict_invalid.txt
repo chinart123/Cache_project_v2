@@ -1,0 +1,18 @@
+# TEST_NAME: Edge Case - L2 Evict Invalid Line
+# EXPECTED_DATA_READ: 1
+# EXPECTED_DATA_WRITE: 0
+# EXPECTED_DATA_HIT: 0
+# EXPECTED_DATA_MISS: 1
+# EXPECTED_WRITE_BACK: 0
+# EXPECTED_INSTR_READ: 0
+# EXPECTED_INSTR_WRITE: 0
+# EXPECTED_INSTR_HIT: 0
+# EXPECTED_INSTR_MISS: 0
+# EXPECTED_DATA_HIT_RATIO: 0.0000
+# EXPECTED_INSTR_HIT_RATIO: 0.0000
+# RUN_MODE: 1
+# DESCRIPTION: L2 evicts a line that is not in L1 (should be handled gracefully)
+
+0 0x00408040    # Miss - bring line into L1
+3 0x00410040    # L2 evict for a different address (not in L1) - should not crash
+9

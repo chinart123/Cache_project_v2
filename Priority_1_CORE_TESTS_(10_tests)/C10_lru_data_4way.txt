@@ -1,0 +1,26 @@
+# TEST_NAME: LRU Replacement - Data Cache 4-way
+# EXPECTED_DATA_READ: 6
+# EXPECTED_DATA_WRITE: 0
+# EXPECTED_DATA_HIT: 1
+# EXPECTED_DATA_MISS: 5
+# EXPECTED_WRITE_BACK: 0
+# EXPECTED_INSTR_READ: 0
+# EXPECTED_INSTR_WRITE: 0
+# EXPECTED_INSTR_HIT: 0
+# EXPECTED_INSTR_MISS: 0
+# EXPECTED_DATA_HIT_RATIO: 0.1667
+# EXPECTED_INSTR_HIT_RATIO: 0.0000
+# RUN_MODE: 0
+
+# Access 4 different addresses to fill all ways in a set
+0 0x00408040    # Miss → way 0 (LRU: 3)
+0 0x00410040    # Miss → way 1 (LRU: 3, way 0: 2)
+0 0x00418040    # Miss → way 2 (LRU: 3, way 0: 1, way 1: 2)
+0 0x00420040    # Miss → way 3 (LRU: 3, way 0: 0, way 1: 1, way 2: 2)
+
+# Access way 0 to make it MRU
+0 0x00408040    # Hit → way 0 becomes MRU (LRU: 3)
+
+# New access should evict LRU (way 1)
+0 0x00428040    # Miss → evict way 1 (was LRU)
+9

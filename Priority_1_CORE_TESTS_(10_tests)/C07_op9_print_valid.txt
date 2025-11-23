@@ -1,0 +1,19 @@
+# TEST_NAME: Operation 9 - Print Only Valid Lines
+# EXPECTED_DATA_READ: 2
+# EXPECTED_DATA_WRITE: 0
+# EXPECTED_DATA_HIT: 0
+# EXPECTED_DATA_MISS: 2
+# EXPECTED_WRITE_BACK: 0
+# EXPECTED_INSTR_READ: 1
+# EXPECTED_INSTR_WRITE: 0
+# EXPECTED_INSTR_HIT: 0
+# EXPECTED_INSTR_MISS: 1
+# EXPECTED_DATA_HIT_RATIO: 0.0000
+# EXPECTED_INSTR_HIT_RATIO: 0.0000
+# RUN_MODE: 0
+# EXPECTED_L2_MESSAGES: 0 (Mode 0)
+
+0 0x00408040    # Data read miss
+0 0x00408044    # Data read miss (different address)
+2 0x00409040    # Instruction fetch miss
+9               # Print should show only 3 valid lines (2 data + 1 instr)

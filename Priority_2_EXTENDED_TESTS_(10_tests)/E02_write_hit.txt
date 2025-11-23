@@ -1,0 +1,20 @@
+# TEST_NAME: Extended - Write Hit (After First Write)
+# EXPECTED_DATA_READ: 0
+# EXPECTED_DATA_WRITE: 4
+# EXPECTED_DATA_HIT: 3
+# EXPECTED_DATA_MISS: 1
+# EXPECTED_WRITE_BACK: 0
+# EXPECTED_INSTR_READ: 0
+# EXPECTED_INSTR_WRITE: 0
+# EXPECTED_INSTR_HIT: 0
+# EXPECTED_INSTR_MISS: 0
+# EXPECTED_DATA_HIT_RATIO: 0.7500
+# EXPECTED_INSTR_HIT_RATIO: 0.0000
+# RUN_MODE: 1
+# EXPECTED_L2_MESSAGES: 2 (miss + first write-through)
+
+1 0x00408040    # Write miss → Read for Ownership
+1 0x00408040    # Write hit → First write → Write-Through to L2
+1 0x00408040    # Write hit → Subsequent write → NO L2 message
+1 0x00408040    # Write hit → Subsequent write → NO L2 message
+9

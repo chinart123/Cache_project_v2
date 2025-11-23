@@ -1,0 +1,32 @@
+# TEST_NAME: Dirty Eviction Write-Back
+# EXPECTED_DATA_READ: 8
+# EXPECTED_DATA_WRITE: 2
+# EXPECTED_DATA_HIT: 5
+# EXPECTED_DATA_MISS: 5
+# EXPECTED_WRITE_BACK: 1
+# EXPECTED_INSTR_READ: 0
+# EXPECTED_INSTR_WRITE: 0
+# EXPECTED_INSTR_HIT: 0
+# EXPECTED_INSTR_MISS: 0
+# EXPECTED_DATA_HIT_RATIO: 0.5000
+# EXPECTED_INSTR_HIT_RATIO: 0.0000
+# RUN_MODE: 1
+
+# Fill all 4 ways
+0 0x00000080    # Miss → Way 0 (LRU=3)
+0 0x00100080    # Miss → Way 1 (LRU=3, W0=2)
+0 0x00200080    # Miss → Way 2 (LRU=3, W0=1, W1=2)
+0 0x00300080    # Miss → Way 3 (LRU=3, W0=0, W1=1, W2=2)
+
+# Make Way 0 dirty
+1 0x00000080    # Write hit → First (through, W0 LRU=3, W1=0, W2=1, W3=2)
+1 0x00000080    # Write hit → Subsequent (dirty, W0 LRU=3, W1=0, W2=1, W3=2)
+
+# Access other ways to make Way 0 become LRU
+0 0x00100080    # Hit W1 → W1 LRU=3, W0=2, W2=0, W3=1
+0 0x00200080    # Hit W2 → W2 LRU=3, W0=1, W1=2, W3=0
+0 0x00300080    # Hit W3 → W3 LRU=3, W0=0, W1=1, W2=2
+
+# Now Way 0 (dirty) is LRU!
+0 0x00400080    # Miss → Evict W0 (dirty) → WRITEBACK!
+9

@@ -1,0 +1,21 @@
+# TEST_NAME: Extended - Set Index Extraction
+# EXPECTED_DATA_READ: 4
+# EXPECTED_DATA_WRITE: 0
+# EXPECTED_DATA_HIT: 2
+# EXPECTED_DATA_MISS: 2
+# EXPECTED_WRITE_BACK: 0
+# EXPECTED_INSTR_READ: 0
+# EXPECTED_INSTR_WRITE: 0
+# EXPECTED_INSTR_HIT: 0
+# EXPECTED_INSTR_MISS: 0
+# EXPECTED_DATA_HIT_RATIO: 0.5000
+# EXPECTED_INSTR_HIT_RATIO: 0.0000
+# RUN_MODE: 0
+# VERIFICATION: Addresses with same set index should map to same cache set
+
+# Addresses with same set index (0x0040) but different tags
+0 0x00408040    # Set: 0x0040, Tag: 0x00408
+0 0x00408040    # Hit
+0 0x00418040    # Set: 0x0040, Tag: 0x00418 (same set, different tag)
+0 0x00418040    # Hit
+9

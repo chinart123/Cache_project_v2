@@ -1,0 +1,21 @@
+# TEST_NAME: Edge Case - Full Set Conflict (4-way)
+# EXPECTED_DATA_READ: 5
+# EXPECTED_DATA_WRITE: 0
+# EXPECTED_DATA_HIT: 0
+# EXPECTED_DATA_MISS: 5
+# EXPECTED_WRITE_BACK: 0
+# EXPECTED_INSTR_READ: 0
+# EXPECTED_INSTR_WRITE: 0
+# EXPECTED_INSTR_HIT: 0
+# EXPECTED_INSTR_MISS: 0
+# EXPECTED_DATA_HIT_RATIO: 0.0000
+# EXPECTED_INSTR_HIT_RATIO: 0.0000
+# RUN_MODE: 1
+# DESCRIPTION: Access 5 addresses that map to the same set, forcing evictions
+
+0 0x00408040    # Miss - way 0
+0 0x00410040    # Miss - way 1 (same set, different tag)
+0 0x00418040    # Miss - way 2
+0 0x00420040    # Miss - way 3 (set full)
+0 0x00428040    # Miss - evict way 0 (LRU)
+9

@@ -1,0 +1,21 @@
+# TEST_NAME: Edge Case - Clean Eviction (No Write-Back)
+# EXPECTED_DATA_READ: 5
+# EXPECTED_DATA_WRITE: 0
+# EXPECTED_DATA_HIT: 0
+# EXPECTED_DATA_MISS: 5
+# EXPECTED_WRITE_BACK: 0
+# EXPECTED_INSTR_READ: 0
+# EXPECTED_INSTR_WRITE: 0
+# EXPECTED_INSTR_HIT: 0
+# EXPECTED_INSTR_MISS: 0
+# EXPECTED_DATA_HIT_RATIO: 0.0000
+# EXPECTED_INSTR_HIT_RATIO: 0.0000
+# RUN_MODE: 1
+# DESCRIPTION: Evict clean lines (no write-back)
+
+0 0x00408040    # Miss
+0 0x00410040    # Miss
+0 0x00418040    # Miss
+0 0x00420040    # Miss (set full)
+0 0x00428040    # Miss - evict clean line (no write-back)
+9

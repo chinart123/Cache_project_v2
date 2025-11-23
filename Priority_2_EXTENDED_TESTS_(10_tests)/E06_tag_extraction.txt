@@ -1,0 +1,23 @@
+# TEST_NAME: Extended - Tag Extraction Verification
+# EXPECTED_DATA_READ: 4
+# EXPECTED_DATA_WRITE: 0
+# EXPECTED_DATA_HIT: 0
+# EXPECTED_DATA_MISS: 4
+# EXPECTED_WRITE_BACK: 0
+# EXPECTED_INSTR_READ: 0
+# EXPECTED_INSTR_WRITE: 0
+# EXPECTED_INSTR_HIT: 0
+# EXPECTED_INSTR_MISS: 0
+# EXPECTED_DATA_HIT_RATIO: 0.0000
+# EXPECTED_INSTR_HIT_RATIO: 0.0000
+# RUN_MODE: 0
+# VERIFICATION: Different addresses with same tag should hit
+# Tag = address[31:20], Set = address[19:6], Byte = address[5:0]
+
+# Same tag (0x00408), different sets
+0 0x00408040    # Tag: 0x00408, Set: 0x0040
+0 0x00408080    # Tag: 0x00408, Set: 0x0080 (different set, same tag)
+# Different tag, same set  
+0 0x00418040    # Tag: 0x00418, Set: 0x0040 (different tag, same set)
+0 0x00428040    # Tag: 0x00428, Set: 0x0040 (different tag, same set)
+9
